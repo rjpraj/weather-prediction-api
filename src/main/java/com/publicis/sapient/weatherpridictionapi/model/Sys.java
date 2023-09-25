@@ -1,0 +1,9 @@
+package com.publicis.sapient.weatherpridictionapi.model;
+
+import lombok.Data;
+
+@Data
+public class Sys {
+//   response from api
+    private String pod;
+}
