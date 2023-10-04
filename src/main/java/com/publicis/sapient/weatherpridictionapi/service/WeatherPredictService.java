@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface WeatherPredictService {
 
-    List<WeatherPredictDto> getCityWeather(String city);
+    WeatherPredictDto getCityWeather(String city);
 }

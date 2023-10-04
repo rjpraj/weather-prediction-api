@@ -1,18 +1,18 @@
 package com.publicis.sapient.weatherpridictionapi.dto;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@Setter
 public class WeatherPredictDto {
-    /** highest temperature */
-    private float high;
 
-    /** lowest temperature */
-    private float low;
+    /** Contains daily min max temp forecast for 3 days */
+    private List<DailyForecastDto> dailyForecastList = new ArrayList<>();
 
-    /** message based on temperature */
-    private String message;
-
-    /** Date + time window of temperature prediction */
-    private String date;
+    /** Contains todays forecast for every 3 hours with message */
+    private List<HourlyForecastDto> hourlyForecastList = new ArrayList<>();
 }

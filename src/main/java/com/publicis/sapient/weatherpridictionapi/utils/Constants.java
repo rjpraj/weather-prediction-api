@@ -10,6 +10,9 @@ public interface Constants {
     /** The Constant DIFFS_ARE_NOT_FOUND_WITH_ID. */
     public static final String WEATHER_NOT_FOUND = "Weather not found for City ";
 
+    /** The Constant DIFFS_ARE_NOT_FOUND_WITH_ID. */
+    public static final String API_DOWN = "Error fetching data, please try later";
+
     /** The Constant CARRY_UMBRELLA. */
     public static final String CARRY_UMBRELLA = "Carry umbrella";
 

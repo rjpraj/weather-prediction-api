@@ -34,7 +34,7 @@ public class WeatherPredictController {
      * @return the list of WeatherPrediction
      */
     @GetMapping("/{city}")
-    public ResponseEntity<List<WeatherPredictDto>> getCityWeatherPrediction(@PathVariable String city) {
+    public ResponseEntity<?> getCityWeatherPrediction(@PathVariable String city) {
         LOGGER.trace("Entering getCityWeatherPrediction(city={})", city);
 
         if (city == null || city.isEmpty()) {
@@ -42,11 +42,12 @@ public class WeatherPredictController {
         }
 
         try {
-            System.out.println("I am called : Controller for city :"+city);
-            return new ResponseEntity<List<WeatherPredictDto>>(
+            LOGGER.info("I am called : Controller for city :"+city);
+            return new ResponseEntity<WeatherPredictDto>(
                     weatherPredictService.getCityWeather(city), HttpStatus.OK);
         } catch (Exception ex) {
-            throw new RuntimeException(Constants.WEATHER_NOT_FOUND + city);
+            LOGGER.error("error found",ex.getStackTrace());
+            return new ResponseEntity<>(ex.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
